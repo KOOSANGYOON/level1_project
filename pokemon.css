@@ -67,6 +67,11 @@
   left: 50px;
 }
 
+#message {
+  height: 120px;
+  line-height: 120px;
+}
+
 #dock {
   color: black;
   background-color: #EEEEEE;
