@@ -130,6 +130,9 @@ function drawEnemy(arr, pos, monNum) {
   enemyImage.onload = function () {
     drawE.drawImage(enemyImage, pos[1], -10);
   };
+  if (monNum === 11) {
+    console.log("a");
+  }
   for (var i = monNum; i < 11; i++) {
     if (arr[i].hp > 0) {
       enemyImage.src = arr[i].src;
@@ -140,6 +143,7 @@ function drawEnemy(arr, pos, monNum) {
       return -1;
     }
   }
+  return 11;
 }
 
 //draw my pokemon. no return. just draw.
@@ -153,6 +157,9 @@ function drawMe(arr, pos, monNum) {
   pkm2Image.onload = function () {
     drawM.drawImage(pkm2Image, pos[0], 10);
   };
+  if (monNum === 11) {
+    return 11;
+  }
   for (var i = monNum; i < 5; i++) {
     if (arr[i].hp > 0) {
       pkm2Image.src = arr[i].src;
@@ -219,6 +226,8 @@ function isCome() {
   if (isDie2 === -1) {
     pokeNum[0] += 1;
     xPos[1] = 140;
+  }else if (isDie2 === 11) {
+    victory();
   }
 }
 
@@ -272,6 +281,14 @@ function takeRest(myPokemon, myPokeNum, enemyArr, enemyNum) {
   }
 }
 
+//if user click "changePkm" button, update message penel.
+function changePkm() {
+  setTimeout(function() {
+    document.getElementById("message").innerHTML =
+                    "사나이는 질 것 같다고 포켓몬을 바꾸지 않는다. 그냥 싸워라.";
+  }, 500);
+}
+
 //OFF BGM
 function turnOff() {
   document.getElementById("music").src = "";
@@ -292,6 +309,19 @@ function theEnd() {
   document.getElementById("message").innerHTML = "도망치자.. 다음엔 이기고 말겠어..";
   setTimeout(function() {
     document.getElementById("message").innerHTML = "You Lose";}, 2000);
+}
+
+//if user victory, update message penel and all buttons are disabled.
+function victory() {
+  clearInterval(y);
+  clearInterval(x);
+  document.getElementById("attack").disabled = true;
+  document.getElementById("rest").disabled = true;
+  document.getElementById("changePkm").disabled = true;
+  document.getElementById("ranAway").disabled = true;
+  setTimeout(function() {
+    document.getElementById("message").innerHTML =
+                          "[보스]호눅스를 이기고 챔피언이 되었다.";}, 1000);
 }
 //-------------------MAIN START--------------------
 var trainer = [];
