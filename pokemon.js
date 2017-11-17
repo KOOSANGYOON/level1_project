@@ -289,7 +289,7 @@ function changePkm() {
   setTimeout(function() {
     document.getElementById("message").innerHTML =
                     "그냥 싸워라.";
-  }, 1000);
+  }, 2000);
 }
 
 //OFF BGM
