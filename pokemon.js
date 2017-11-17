@@ -186,8 +186,6 @@ function clearMe(arr, pos, monNum) {
     console.log("stop");
     return 0;
   }
-
-  console.log(pos[0]);
   return -1;
 }
 
@@ -321,7 +319,7 @@ function victory() {
   document.getElementById("ranAway").disabled = true;
   setTimeout(function() {
     document.getElementById("message").innerHTML =
-                          "[보스]호눅스를 이기고 챔피언이 되었다.";}, 1000);
+                          "챔피언이 되었다.";}, 2000);
 }
 //-------------------MAIN START--------------------
 var trainer = [];
