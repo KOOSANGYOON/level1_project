@@ -111,6 +111,7 @@ function drawEnemyStatus(arr, num) {
   document.getElementById("enemyPower").innerHTML = "POWER : " + arr[num].power;
 }
 
+//draw my status
 function drawMyStatus(arr, num) {
   document.getElementById("myName").innerHTML = arr[num].name;
   document.getElementById("myHP").innerHTML = "HP : " + arr[num].hp;
@@ -143,7 +144,7 @@ function drawEnemy(arr, pos, monNum) {
       return -1;
     }
   }
-  return 11;
+  return 11;  //if all enemy monsters are died, return 11
 }
 
 //draw my pokemon. no return. just draw.
@@ -283,8 +284,12 @@ function takeRest(myPokemon, myPokeNum, enemyArr, enemyNum) {
 function changePkm() {
   setTimeout(function() {
     document.getElementById("message").innerHTML =
-                    "사나이는 질 것 같다고 포켓몬을 바꾸지 않는다. 그냥 싸워라.";
+                    "사나이는 질 것 같다고 포켓몬을 바꾸지 않는다.";
   }, 500);
+  setTimeout(function() {
+    document.getElementById("message").innerHTML =
+                    "그냥 싸워라.";
+  }, 1000);
 }
 
 //OFF BGM
